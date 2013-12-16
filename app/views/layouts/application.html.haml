@@ -9,6 +9,7 @@
     = csrf_meta_tags
   %body
     %nav.top-bar
+
       %ul.title-area
         %li.name
           %h1
@@ -22,6 +23,8 @@
             = link_to 'My Account', user_url(User.last.id)
     .row
       .large-12.columns
+        %p.notice= notice unless notice.blank?
+        %p.alert= alert unless alert.blank?
         = yield
 
         = javascript_include_tag "application"
